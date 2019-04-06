@@ -41,7 +41,13 @@ Una vez instalado, para poder usar las clases definidas o creadas por Bootstrap 
             // ...
             "styles": [
               "src/styles.css"
-              "./node_modules/Ruta a los archivos css"
+              //AQUÍ AÑADIMOS EL CSS DE BOOTSTRAP
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              //AQUÍ AÑADIMOS EL JS DE BOOTSTRAP
+              "./node_modules/bootstrap/js/dist/bootstrap.min.js"
+            ],
             ],
           },
   //...
