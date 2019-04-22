@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { KeysService } from './keys.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,37 @@ export class MarvelService {
   private publicKey: string;
   private privateKey: string;
   
-  constructor(keysService: KeysService) { 
-    this.privateKey = keysService.privateKey;
-    this.publicKey = keysService.publicKey;
+  constructor(private keysService: KeysService, private http: HttpClient) { 
+    this.privateKey = this.keysService.privateKey;
+    this.publicKey = this.keysService.publicKey;
   }
 
-  
+  getQuery(query:string){
+    const url = `https://gateway.marvel.com/v1/public/${query}`;
+    
+    //md5(ts+private+public)
+    const ts = new Date().valueOf().toString();
+    const md5 = new Md5();
+    const hash = md5.appendStr(ts).appendStr(this.privateKey).appendStr(this.publicKey).end();
+    const authoritationStr = `?ts=${ts}&apikey=${this.publicKey}&hash=${hash}`;
+    return this.http.get(url + authoritationStr);
+  }
+
+  getComics(){
+    return this.getQuery('comics').subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  getCharacters(){
+    return this.getQuery('characters').subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  getEvents(){
+    return this.getQuery('events').subscribe(data => {
+      console.log(data);
+    });
+  }
 }
