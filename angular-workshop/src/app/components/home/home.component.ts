@@ -22,4 +22,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onSearch(searched: string){
+    if(searched.trim() == ''){
+      this.marvel.getCharacters().subscribe(results => {
+        console.log(results);
+        this.characters = results;
+      });
+    }
+    else{
+      this.marvel.searchCharacter(searched).subscribe(results => {
+        console.log(results);
+        this.characters = results;
+      });
+    }
+  }
 }

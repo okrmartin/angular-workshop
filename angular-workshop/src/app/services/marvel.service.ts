@@ -27,25 +27,19 @@ export class MarvelService {
     const ts = new Date().valueOf().toString();
     const md5 = new Md5();
     const hash = md5.appendStr(ts).appendStr(this.privateKey).appendStr(this.publicKey).end();
-    const authoritationStr = `?ts=${ts}&apikey=${this.publicKey}&hash=${hash}`;
+    const authoritationStr = `ts=${ts}&apikey=${this.publicKey}&hash=${hash}`;
     return this.http.get(url + authoritationStr);
   }
 
-  getComics(){
-    return this.getQuery('comics').subscribe(data => {
-      console.log(data);
-    });
-  }
-
   getCharacters(){
-    return this.getQuery('characters').pipe(
+    return this.getQuery('characters?').pipe(
       map(data => data['data']['results'].map(item => this.heroAdapter.adapt(item)))
     );
   }
 
-  getEvents(){
-    return this.getQuery('events').subscribe(data => {
-      console.log(data);
-    });
+  searchCharacter(nameStartsWith: string){
+    return this.getQuery(`characters?nameStartsWith=${nameStartsWith}&`).pipe(
+      map(data => data['data']['results'].map(item => this.heroAdapter.adapt(item)))
+    );
   }
 }
