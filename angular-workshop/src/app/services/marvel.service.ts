@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { KeysService } from './keys.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Md5} from 'ts-md5/dist/md5';
+import { Md5 } from 'ts-md5/dist/md5';
+import { map } from 'rxjs/operators'
+import { HeroAdapter } from './hero.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,10 @@ export class MarvelService {
   private publicKey: string;
   private privateKey: string;
   
-  constructor(private keysService: KeysService, private http: HttpClient) { 
+  constructor(private keysService: KeysService, 
+    private http: HttpClient, 
+    private heroAdapter: HeroAdapter) { 
+
     this.privateKey = this.keysService.privateKey;
     this.publicKey = this.keysService.publicKey;
   }
@@ -33,9 +38,9 @@ export class MarvelService {
   }
 
   getCharacters(){
-    return this.getQuery('characters').subscribe(data => {
-      console.log(data);
-    });
+    return this.getQuery('characters').pipe(
+      map(data => data['data']['results'].map(item => this.heroAdapter.adapt(item)))
+    );
   }
 
   getEvents(){

@@ -8,10 +8,18 @@ import { MarvelService } from 'src/app/services/marvel.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private marvel: MarvelService) { }
+  characters: any[] = [];
+
+  constructor(private marvel: MarvelService) {
+
+   }
 
   ngOnInit() {
-    this.marvel.getCharacters();
+    console.log('waiting for results');
+    this.marvel.getCharacters().subscribe(results => {
+      console.log(results);
+      this.characters = results;
+    });
   }
 
 }
