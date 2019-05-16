@@ -23,7 +23,6 @@ export class MarvelService {
   getQuery(query:string){
     const url = `https://gateway.marvel.com/v1/public/${query}`;
     
-    //md5(ts+private+public)
     const ts = new Date().valueOf().toString();
     const md5 = new Md5();
     const hash = md5.appendStr(ts).appendStr(this.privateKey).appendStr(this.publicKey).end();

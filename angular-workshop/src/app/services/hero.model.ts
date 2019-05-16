@@ -14,7 +14,7 @@ export class HeroAdapter implements Adapter<Hero>{
     adapt(item: any): Hero {
         const extension = item['thumbnail']['extension'];
         const path = item['thumbnail']['path'];
-        const variant = 'standard_fantastic';
+        const variant = 'landscape_incredible';
         return {
             name: item['name'],
             description: item['description'],

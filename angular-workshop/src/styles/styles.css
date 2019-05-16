@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+  }
+  
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .py-5 {
+    padding-top: 1.5rem !important;
+  }
+  
+  #nav-bg-color-marvel {
+    background-color: #EE161F !important;
+  }
+  
+  .bg-dark {
+    background-color: black !important;
+  }
+  
+  .navbar-dark .navbar-toggler {
+    color: #F78D92;
+    border-color: #F78D92; 
+  }
+  
+  .group-container {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 15px;
+  }
+  
+  .button-group {
+    text-align: center;
+    margin: 15px 0px 0px 0px;
+  }
+  
+  .blank-space {
+    padding-right: 25px;
+  }
+  
+  .btn-pagination {
+    font-size: 16px;
+  }
+  
+  footer {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: black;
+  }
+  
+  .text-footer {
+    color: white;
+  }
+  
+  .has-search .form-control {
+    padding-left: 2.375rem;
+  }
+  
+  .hero-name {
+    color: #EE151F;
+    margin-bottom: 15px;
+  }
+  
+  .container-cards-space {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  
+  .card-general-hero {
+    padding: 15px 0px 0px 0px !important;
+  }
+  
+  .card-width-hero {
+    width: 100%;
+    border: 1px solid rgba(238, 20, 20, 0.125) !important;
+  }
+  
+  .card-header-hero {
+    background-color: #EE151F;
+    color: white;
+  }
+  
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+  
+  @media (min-width: 576px) {
+    svg.img-width-card {
+      width: 100%;
+      height: 220px !important;
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  
+    svg.img-width-card {
+      width: 100%;
+      height: 365px !important;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    svg.img-width-card {
+      width: 100%;
+      height: 270px !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    svg.img-width-card {
+      width: 100%;
+      height: 220px !important;
+    }
+  }
