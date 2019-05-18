@@ -60,4 +60,3 @@ typings/
 # next.js build output
 .next
 angular-workshop/src/app/services/keys.service.ts
-angular-workshop/src/app/services/keys.service.ts
